@@ -47,7 +47,7 @@ function setup() {
   
   
   frameRate(10);
-  background(0);
+  background(20);
   many = random(fibo);
   X = random(50, windowWidth-50);
   Y = random(0, windowHeight/2);
