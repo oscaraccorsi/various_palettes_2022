@@ -1,4 +1,7 @@
-//let imgLoad = 'assets/pal09.png';
+let baseURLImage = 'https://oscaraccorsi.github.io/pictures/';
+let logo;
+let xLogo;
+
 
 let palette = [];
 let bubbles = [];
@@ -21,6 +24,7 @@ let fibo = [5, 8, 13, 21, 34, 55, 89];
 let many;
 
 function preload() {
+ logo = loadImage(baseURLImage + 'good one white.png'); 
  dataFlow = loadSound('assets/flow1.mp3'); 
  palettes[0] = loadImage('assets/pal0.png');
  palettes[1] = loadImage('assets/pal1.png'); 
@@ -39,6 +43,7 @@ function windowResized() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  xLogo = windowWidth-40;
   setInterval(resetSketch, 1000*120);
   img = random(palettes);
   img.resize(100, 200);
@@ -47,7 +52,7 @@ function setup() {
   
   
   frameRate(10);
-  background(20);
+  background(10);
   many = random(fibo);
   X = random(50, windowWidth-50);
   Y = random(0, windowHeight/2);
@@ -95,7 +100,7 @@ function draw() {
 function resetSketch() {
   //save();
   clear();
-  background(0);
+  background(10);
   bubbles = [];
   palette = [];
   X = random(100, windowWidth-100);
@@ -136,4 +141,16 @@ function resetSketch() {
   
   reverb = new p5.Reverb();
   reverb.process(dataFlow, 3, 0, false);
+}
+//-------------------------------------------mousePressed
+function mousePressed() {
+  
+  imageMode(CENTER);
+  logo.resize(40, 0);
+  image(logo, xLogo, windowHeight-25);
+  tint(200); 
+  save();
+  clear();
+  background(10);
+  
 }
